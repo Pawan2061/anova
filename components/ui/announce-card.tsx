@@ -149,7 +149,7 @@ export function AnnounceCard() {
                         <Button>Book a call</Button>
                       </Link>
                       <Link
-                        href="pandeypawan2061@gmail.com"
+                        href="mailto:pandeypawan2061@gmail.com"
                         target="_blank"
                         className={cn(
                           buttonVariants({ variant: "outline", size: "icon" })
@@ -160,7 +160,8 @@ export function AnnounceCard() {
                         </span>
                       </Link>
                       <Link
-                        href="https://wa.me/9289037928"
+                        href="https://wa.me/8056744016
+"
                         target="_blank"
                         className={cn(
                           buttonVariants({ variant: "outline", size: "icon" })

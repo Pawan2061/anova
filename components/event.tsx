@@ -1,11 +1,3 @@
-// import {
-//   BellIcon,
-//   CalendarIcon,
-//   FileTextIcon,
-//   GlobeIcon,
-//   InputIcon,
-// } from "@radix-ui/react-icons";
-
 import {
   FileTextIcon,
   FileInputIcon,
@@ -19,19 +11,19 @@ import { DefaultDemo } from "./text/animated-text";
 const features = [
   {
     Icon: FileTextIcon,
-    name: "Event1",
-    description: "Event1 from anova team",
-    href: "/",
-    cta: "Learn more",
+    name: "Workshop",
+    description: " Mastering Data Visualization in R & Tableau",
+    href: "/register",
+    cta: "7th Feb",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
     Icon: FileInputIcon,
-    name: "Event2",
-    description: "Event2 from anova team",
-    href: "/",
-    cta: "Learn more",
+    name: "Hackathon",
+    description: "Codewave Hackathon 3.0",
+    href: "/register",
+    cta: "8th Feb,, Resigstrations Opens - 05-01-2025 ",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },

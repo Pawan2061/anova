@@ -17,6 +17,13 @@ export function Navbar() {
       icon: <User className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
+      name: "Gallery",
+      link: "/gallery",
+      icon: (
+        <MessageSquare className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
+    },
+    {
       name: "Contact",
       link: "/contact",
       icon: (
@@ -26,16 +33,16 @@ export function Navbar() {
   ];
 
   return (
-    <div className="relative w-full">
+    <div className="relative  w-full ">
       <FloatingNav navItems={navItems} />
-      <DummyContent />
+      {/* <DummyContent /> */}
     </div>
   );
 }
 
 const DummyContent = () => {
   return (
-    <div className="grid grid-cols-1 h-full w-full  dark:bg-black relative    rounded-md">
+    <div className="grid grid-cols-1 h-full w-full  dark:bg-black  relative    rounded-md">
       {/* <p className="dark:text-white text-neutral-600 text-center text-4xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         Scroll back up to reveal Navbar
       </p> */}
