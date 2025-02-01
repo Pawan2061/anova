@@ -1,9 +1,9 @@
+// layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Background } from "@/components/background";
 import { Navbar } from "@/components/nav";
-import { ThemeProvider } from "@/components/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,21 +27,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {/* <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        > */}
-        <Background />
-        <div className="relative z-10">
-          <header className="px-4 md:px-8 lg:px-16">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen`}
+      >
+        <div className="fixed inset-0 z-0">
+          <Background />
+        </div>
+        <div className="relative z-10 min-h-screen">
+          <header className="px-4 md:px-8 lg:px-16 ">
             <Navbar />
           </header>
           <main className="px-4 md:px-8 lg:px-16">{children}</main>
         </div>
-        {/* </ThemeProvider> */}
       </body>
     </html>
   );

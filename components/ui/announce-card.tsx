@@ -160,7 +160,7 @@ export function AnnounceCard() {
                         </span>
                       </Link>
                       <Link
-                        href="https://wa.me/8056744016
+                        href="whatsapp:contact=9289037928
 "
                         target="_blank"
                         className={cn(

@@ -2,9 +2,7 @@
 
 import Tiles from "@/components/ui/tiles";
 import Image from "next/image";
-import logo from "../public/logo.png";
 import jainlogo from "../public/Jain-logo.png";
-import Link from "next/link";
 
 export function Background() {
   return (

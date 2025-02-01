@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import anovablack from "../public/lobo black.png";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
-import Image from "next/image";
 
 const dummyContent = (
   <div>
@@ -95,7 +93,7 @@ function ScrollProgressBasic1() {
       <div className="pointer-events-none absolute left-0 top-0 w-full">
         <div className="absolute left-0 top-0 h-1 w-full bg-[#E6F4FE] dark:bg-[#111927]" />
         <ScrollProgress
-          // @ts-ignore
+          // @ts-expect-error
           containerRef={containerRef}
           className="absolute top-0 bg-[#0090FF]"
         />
