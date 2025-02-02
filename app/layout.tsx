@@ -34,7 +34,7 @@ export default function RootLayout({
           <Background />
         </div>
         <div className="relative z-10 min-h-screen">
-          <header className="px-4 md:px-8 lg:px-16 ">
+          <header className="px-4 md:px-8 lg:px-16">
             <Navbar />
           </header>
           <main className="px-4 md:px-8 lg:px-16">{children}</main>
