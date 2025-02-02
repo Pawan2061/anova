@@ -12,13 +12,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useId } from "react";
 
-function Signup() {
+function Signup({ text }: any) {
   const id = useId();
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-24">
-          Sign in
+        <Button variant="outline" className="w-fit rounded-2xl">
+          {text}
         </Button>
       </DialogTrigger>
       <DialogContent>

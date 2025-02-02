@@ -7,7 +7,7 @@ import {
 
 const EventDetails = () => {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center  text-center font-calendas">
+    <div className="w-full  flex flex-col items-center justify-center  text-center font-calendas">
       <div className="text-2xl md:text-4xl text-[#0015ff] font-bold mb-6">
         <LetterSwapForward label="Upcoming Events" staggerFrom="center" />
       </div>

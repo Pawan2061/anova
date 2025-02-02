@@ -21,9 +21,9 @@ const mediaItems = [
   {
     id: 2,
     type: "video",
-    title: "Dog Puppy",
-    desc: "Adorable loyal companion.",
-    url: anova2.src,
+    title: "POWERBI WORKSHOP",
+    desc: "POWERBI WORKSHOP BY DR YOSHITA REDDY .",
+    url: "/video1.mp4",
     span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
   },
   {
@@ -47,9 +47,10 @@ const mediaItems = [
     type: "video",
     title: "TECHATHON",
     desc: "Hackathon conducted by anova club",
-    url: anova5.src,
-    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2 ",
+    url: "/video2.mp4",
+    span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
   },
+
   {
     id: 6,
     type: "image",
@@ -63,9 +64,10 @@ const mediaItems = [
     type: "image",
     title: "TECHATHON ",
     desc: "Hackathon conducted by anova club ",
-    url: anova7.src,
+    url: anova4.src,
     span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2 ",
   },
+
   {
     id: 8,
     type: "image",
@@ -86,7 +88,7 @@ const mediaItems = [
 
 export function AboutGallery() {
   return (
-    <div className="min-h-screen overflow-y-auto">
+    <div className="min-h-screen  overflow-y-auto">
       <InteractiveBentoGallery
         mediaItems={mediaItems}
         title="Anova Club Gallery"

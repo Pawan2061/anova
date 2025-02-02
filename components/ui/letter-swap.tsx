@@ -1,22 +1,17 @@
-'use client'
+"use client";
 
-import { useState } from "react"
-import {
-  DynamicAnimationOptions,
-  motion,
-  stagger,
-  useAnimate,
-} from "framer-motion"
-import { debounce } from "lodash"
+import { useState } from "react";
+import { AnimationOptions, motion, stagger, useAnimate } from "framer-motion";
+import { debounce } from "lodash";
 
 interface TextProps {
-  label: string
-  reverse?: boolean
-  transition?: DynamicAnimationOptions
-  staggerDuration?: number
-  staggerFrom?: "first" | "last" | "center" | number
-  className?: string
-  onClick?: () => void
+  label: string;
+  reverse?: boolean;
+  transition?: AnimationOptions;
+  staggerDuration?: number;
+  staggerFrom?: "first" | "last" | "center" | number;
+  className?: string;
+  onClick?: () => void;
 }
 
 export function LetterSwapForward({
@@ -32,21 +27,21 @@ export function LetterSwapForward({
   onClick,
   ...props
 }: TextProps) {
-  const [scope, animate] = useAnimate()
-  const [blocked, setBlocked] = useState(false)
+  const [scope, animate] = useAnimate();
+  const [blocked, setBlocked] = useState(false);
 
   const hoverStart = () => {
-    if (blocked) return
+    if (blocked) return;
 
-    setBlocked(true)
+    setBlocked(true);
 
     // Function to merge user transition with stagger and delay
-    const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
+    const mergeTransition = (baseTransition: AnimationOptions) => ({
       ...baseTransition,
       delay: stagger(staggerDuration, {
         from: staggerFrom,
       }),
-    })
+    });
 
     animate(
       ".letter",
@@ -62,9 +57,9 @@ export function LetterSwapForward({
           duration: 0,
         }
       ).then(() => {
-        setBlocked(false)
-      })
-    })
+        setBlocked(false);
+      });
+    });
 
     animate(
       ".letter-secondary",
@@ -81,9 +76,9 @@ export function LetterSwapForward({
         {
           duration: 0,
         }
-      )
-    })
-  }
+      );
+    });
+  };
 
   return (
     <span
@@ -109,10 +104,10 @@ export function LetterSwapForward({
               {letter}
             </motion.span>
           </span>
-        )
+        );
       })}
     </span>
-  )
+  );
 }
 
 export function LetterSwapPingPong({
@@ -128,26 +123,26 @@ export function LetterSwapPingPong({
   onClick,
   ...props
 }: TextProps) {
-  const [scope, animate] = useAnimate()
-  const [isHovered, setIsHovered] = useState(false)
+  const [scope, animate] = useAnimate();
+  const [isHovered, setIsHovered] = useState(false);
 
-  const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
+  const mergeTransition = (baseTransition: AnimationOptions) => ({
     ...baseTransition,
     delay: stagger(staggerDuration, {
       from: staggerFrom,
     }),
-  })
+  });
 
   const hoverStart = debounce(
     () => {
-      if (isHovered) return
-      setIsHovered(true)
+      if (isHovered) return;
+      setIsHovered(true);
 
       animate(
         ".letter",
         { y: reverse ? "100%" : "-100%" },
         mergeTransition(transition)
-      )
+      );
 
       animate(
         ".letter-secondary",
@@ -155,15 +150,15 @@ export function LetterSwapPingPong({
           top: "0%",
         },
         mergeTransition(transition)
-      )
+      );
     },
     100,
     { leading: true, trailing: true }
-  )
+  );
 
   const hoverEnd = debounce(
     () => {
-      setIsHovered(false)
+      setIsHovered(false);
 
       animate(
         ".letter",
@@ -171,7 +166,7 @@ export function LetterSwapPingPong({
           y: 0,
         },
         mergeTransition(transition)
-      )
+      );
 
       animate(
         ".letter-secondary",
@@ -179,11 +174,11 @@ export function LetterSwapPingPong({
           top: reverse ? "-100%" : "100%",
         },
         mergeTransition(transition)
-      )
+      );
     },
     100,
     { leading: true, trailing: true }
-  )
+  );
 
   return (
     <motion.span
@@ -210,8 +205,8 @@ export function LetterSwapPingPong({
               {letter}
             </motion.span>
           </span>
-        )
+        );
       })}
     </motion.span>
-  )
+  );
 }
