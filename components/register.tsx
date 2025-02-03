@@ -1,19 +1,41 @@
+"use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useId } from "react";
 
-function Signup({ text }: any) {
+function Signup({ text }: { text: string }) {
   const id = useId();
+
+  // State to store form data
+  const [formData, setFormData] = useState({
+    usn: "",
+    email: "",
+    phone: "",
+    year: "",
+    department: "",
+    officialEmail: "",
+  });
+
+  // Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -22,75 +44,89 @@ function Signup({ text }: any) {
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <div className="flex flex-col items-center gap-2">
-          <div
-            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
-            aria-hidden="true"
-          >
-            <svg
-              className="stroke-zinc-800 dark:stroke-zinc-100"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 32 32"
-              aria-hidden="true"
-            >
-              <circle cx="16" cy="16" r="12" fill="none" strokeWidth="8" />
-            </svg>
-          </div>
-          <DialogHeader>
-            <DialogTitle className="sm:text-center">Welcome back</DialogTitle>
-            <DialogDescription className="sm:text-center">
-              Enter your credentials to login to your account.
-            </DialogDescription>
-          </DialogHeader>
-        </div>
+        <DialogHeader>
+          <DialogTitle className="sm:text-center">
+            Hackathon Registration
+          </DialogTitle>
+        </DialogHeader>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor={`${id}-email`}>Email</Label>
+              <Label htmlFor={`${id}-usn`}>USN</Label>
               <Input
-                id={`${id}-email`}
-                placeholder="hi@yourcompany.com"
-                type="email"
+                id={`${id}-usn`}
+                name="usn"
+                placeholder="Enter your USN"
+                value={formData.usn}
+                onChange={handleChange}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor={`${id}-password`}>Password</Label>
+              <Label htmlFor={`${id}-email`}>Personal Email</Label>
               <Input
-                id={`${id}-password`}
-                placeholder="Enter your password"
-                type="password"
+                id={`${id}-email`}
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor={`${id}-phone`}>Phone Number</Label>
+              <Input
+                id={`${id}-phone`}
+                name="phone"
+                type="tel"
+                placeholder="Enter your phone number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor={`${id}-year`}>Current Year</Label>
+              <Input
+                id={`${id}-year`}
+                name="year"
+                type="number"
+                placeholder="Enter your current year"
+                value={formData.year}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor={`${id}-department`}>Department</Label>
+              <Input
+                id={`${id}-department`}
+                name="department"
+                placeholder="Enter your department"
+                value={formData.department}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor={`${id}-official-email`}>Official Email ID</Label>
+              <Input
+                id={`${id}-official-email`}
+                name="officialEmail"
+                type="email"
+                placeholder="Enter your official email"
+                value={formData.officialEmail}
+                onChange={handleChange}
                 required
               />
             </div>
           </div>
-          <div className="flex justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Checkbox id={`${id}-remember`} />
-              <Label
-                htmlFor={`${id}-remember`}
-                className="font-normal text-muted-foreground"
-              >
-                Remember me
-              </Label>
-            </div>
-            <a className="text-sm underline hover:no-underline" href="#">
-              Forgot password?
-            </a>
-          </div>
-          <Button type="button" className="w-full">
-            Sign in
+          <Button type="submit" className="w-full">
+            Register
           </Button>
         </form>
-
-        <div className="flex items-center gap-3 before:h-px before:flex-1 before:bg-border after:h-px after:flex-1 after:bg-border">
-          <span className="text-xs text-muted-foreground">Or</span>
-        </div>
-
-        <Button variant="outline">Login with Google</Button>
       </DialogContent>
     </Dialog>
   );
