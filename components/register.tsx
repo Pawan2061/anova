@@ -134,7 +134,7 @@ function Signup({ text }: { text: string }) {
                 Registering...
               </div>
             ) : (
-              "Register Team"
+              "Register For Workshop"
             )}
           </Button>
         </form>

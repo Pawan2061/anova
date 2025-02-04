@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["drive.google.com"],
+    domains: ["res.cloudinary.com/", "encrypted-tbn0.gstatic.com"],
   },
 };
 
