@@ -10,27 +10,43 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { CheckCircle2, XCircle } from "lucide-react";
 import { useId } from "react";
 import { HackRegistrationData, registerForHack } from "@/app/actions";
 
 function HackRegister({ text }: { text: string }) {
   const id = useId();
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData(e.currentTarget);
 
-    const formDataObject = Object.fromEntries(
-      formData.entries()
-    ) as HackRegistrationData;
-    const response = await registerForHack(formDataObject);
-    console.log(response, "respinse is here");
+    try {
+      const formDataObject = Object.fromEntries(
+        formData.entries()
+      ) as HackRegistrationData;
+      const response = await registerForHack(formDataObject);
+      console.log(response, "response is here");
 
-    if (response.error) {
-      setMessage(response.error);
-    } else {
-      setMessage(response.success!);
+      if (response.error) {
+        setMessage({ type: "error", text: response.error });
+      } else {
+        setMessage({ type: "success", text: response.success! });
+      }
+    } catch (err) {
+      setMessage({
+        type: "error",
+        text: "An unexpected error occurred. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -60,6 +76,7 @@ function HackRegister({ text }: { text: string }) {
                 name="email"
                 placeholder="Enter your email"
                 required
+                className="focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="space-y-2">
@@ -71,6 +88,7 @@ function HackRegister({ text }: { text: string }) {
                 name="teamName"
                 placeholder="Enter your team name"
                 required
+                className="focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -84,6 +102,7 @@ function HackRegister({ text }: { text: string }) {
                     name="leaderName"
                     placeholder="Enter leader's name"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -93,6 +112,7 @@ function HackRegister({ text }: { text: string }) {
                     name="leaderUsn"
                     placeholder="Enter leader's USN"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -105,6 +125,7 @@ function HackRegister({ text }: { text: string }) {
                     max={4}
                     placeholder="Year"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -115,6 +136,7 @@ function HackRegister({ text }: { text: string }) {
                     type="tel"
                     placeholder="Phone number"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -127,6 +149,7 @@ function HackRegister({ text }: { text: string }) {
                     type="email"
                     placeholder="Official email"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -142,6 +165,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member1Name"
                     placeholder="Name"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -151,6 +175,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member1Usn"
                     placeholder="USN"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -163,6 +188,7 @@ function HackRegister({ text }: { text: string }) {
                     max={4}
                     placeholder="Year"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -178,6 +204,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member2Name"
                     placeholder="Name"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -187,6 +214,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member2Usn"
                     placeholder="USN"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -199,6 +227,7 @@ function HackRegister({ text }: { text: string }) {
                     max={4}
                     placeholder="Year"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -214,6 +243,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member3Name"
                     placeholder="Name"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -223,6 +253,7 @@ function HackRegister({ text }: { text: string }) {
                     name="member3Usn"
                     placeholder="USN"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -235,24 +266,60 @@ function HackRegister({ text }: { text: string }) {
                     max={4}
                     placeholder="Year"
                     required
+                    className="focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
             </div>
 
-            <Button type="submit" className="w-full mt-4">
-              Register Team
+            <Button
+              type="submit"
+              className="w-full mt-4 bg-blue-600 hover:bg-blue-700 transition-colors"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Registering...
+                </div>
+              ) : (
+                "Register Team"
+              )}
             </Button>
           </div>
+
+          {message && (
+            <div className="mt-4 animate-fadeIn">
+              <Alert
+                variant={message.type === "success" ? "default" : "destructive"}
+                className={`${
+                  message.type === "success"
+                    ? "bg-green-50 text-green-800 border-green-200"
+                    : "bg-red-50 text-red-800 border-red-200"
+                } transition-all duration-300 ease-in-out`}
+              >
+                {message.type === "success" ? (
+                  <CheckCircle2 className="h-4 w-4" />
+                ) : (
+                  <XCircle className="h-4 w-4" />
+                )}
+                <AlertTitle>
+                  {message.type === "success"
+                    ? "Success!"
+                    : "Registration Failed"}
+                </AlertTitle>
+                <AlertDescription>{message.text}</AlertDescription>
+              </Alert>
+            </div>
+          )}
         </form>
 
-        {message && <p className="text-center mt-2 flex-shrink-0">{message}</p>}
         <div className="text-center mt-4">
           <a
-            href="https://chat.whatsapp.com/https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
+            href="https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline flex items-center justify-center gap-2 transition-colors"
           >
             📢 Join the Community WhatsApp Group
           </a>

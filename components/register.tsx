@@ -45,7 +45,7 @@ function Signup({ text }: { text: string }) {
           </DialogTitle>
         </DialogHeader>
 
-        <form className="space-y-5" onSubmit={handleSubmit}>
+        <form className="space-y-5 " onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor={`${id}-name`}>Full Name (For Certificates)</Label>
@@ -119,7 +119,7 @@ function Signup({ text }: { text: string }) {
 
         <div className="text-center mt-4">
           <a
-            href="https://chat.whatsapp.com/https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
+            href="https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
