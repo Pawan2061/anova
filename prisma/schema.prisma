@@ -25,8 +25,7 @@ model Registrations {
 
 model HackRegistrations {
   id                 String @default(uuid())
-  email              String @unique
-  teamName           String
+  teamName           String @unique
   leaderName         String
   leaderUsn          String
   leaderCurrentYear  String

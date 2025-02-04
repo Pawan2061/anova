@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 export type HackRegistrationData = {
-  email: string;
+  // email: string;
   teamName: string;
   leaderName: string;
   leaderUsn: string;
@@ -43,7 +43,6 @@ export async function registerUserForWorkshop(formData: FormData) {
       return { error: "USN already registered" };
     }
 
-    // Create a new registration
     await prisma.registrations.create({
       data: {
         usn,
@@ -101,7 +100,6 @@ export async function registerForHack(formData: HackRegistrationData) {
         member3Name: formData.member3Name,
         member3Usn: formData.member3Usn,
         member3Year: formData.member3Year,
-        email: formData.email,
       },
     });
 

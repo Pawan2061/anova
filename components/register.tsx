@@ -13,21 +13,34 @@ import {
 } from "@/components/ui/dialog";
 import { useId } from "react";
 import { registerUserForWorkshop } from "@/app/actions";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { CheckCircle2, XCircle } from "lucide-react";
 
 function Signup({ text }: { text: string }) {
   const id = useId();
-  const [message, setMessage] = useState<string | null>(null);
-
+  const [message, setMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    try {
+      e.preventDefault();
+      const formData = new FormData(e.currentTarget);
 
-    const response = await registerUserForWorkshop(formData);
-
-    if (response.error) {
-      setMessage(response.error);
-    } else {
-      setMessage(response.success!);
+      const response = await registerUserForWorkshop(formData);
+      if (response.error) {
+        setMessage({ type: "error", text: response.error });
+      } else {
+        setMessage({ type: "success", text: response.success! });
+      }
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: "An unexpected error occurred. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -110,13 +123,46 @@ function Signup({ text }: { text: string }) {
               />
             </div>
           </div>
-          <Button type="submit" className="w-full">
-            Register
+          <Button
+            type="submit"
+            className="w-full mt-4 bg-blue-600 hover:bg-blue-700 transition-colors"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Registering...
+              </div>
+            ) : (
+              "Register Team"
+            )}
           </Button>
         </form>
 
-        {message && <p className="text-center mt-2">{message}</p>}
-
+        {message && (
+          <div className="mt-4 animate-fadeIn">
+            <Alert
+              variant={message.type === "success" ? "default" : "destructive"}
+              className={`${
+                message.type === "success"
+                  ? "bg-green-50 text-green-800 border-green-200"
+                  : "bg-red-50 text-red-800 border-red-200"
+              } transition-all duration-300 ease-in-out`}
+            >
+              {message.type === "success" ? (
+                <CheckCircle2 className="h-4 w-4" />
+              ) : (
+                <XCircle className="h-4 w-4" />
+              )}
+              <AlertTitle>
+                {message.type === "success"
+                  ? "Success!"
+                  : "Registration Failed"}
+              </AlertTitle>
+              <AlertDescription>{message.text}</AlertDescription>
+            </Alert>
+          </div>
+        )}
         <div className="text-center mt-4">
           <a
             href="https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
