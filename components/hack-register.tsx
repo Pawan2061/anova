@@ -44,7 +44,7 @@ function HackRegister({ text }: { text: string }) {
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
         <DialogHeader className="flex-shrink-0">
           <DialogTitle className="sm:text-center">
-            Hackathon Team Registration
+            Codewave Hackathon 3.0
           </DialogTitle>
         </DialogHeader>
 

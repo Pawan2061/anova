@@ -64,7 +64,6 @@ export async function registerUserForWorkshop(formData: FormData) {
 
 export async function registerForHack(formData: HackRegistrationData) {
   try {
-    // Check if any team member's USN is already registered
     const existingUSNs = await prisma.hackRegistrations.findMany({
       where: {
         OR: [
@@ -106,7 +105,7 @@ export async function registerForHack(formData: HackRegistrationData) {
       },
     });
 
-    return { success: `team ${registration.teamName} registered successfully` };
+    return { success: `Team ${registration.teamName} registered successfully` };
   } catch (error) {
     console.error("Registration Error:", error);
     return { error: "Something went wrong during registration" };

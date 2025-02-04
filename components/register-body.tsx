@@ -36,7 +36,7 @@ const EventDetails = () => {
         <div className="mb-4">
           <LetterSwapForward label="Hackathon Timeline" staggerFrom="center" />
           <p className="mt-2">
-            Team size: 4 (1 Team Leader, 2 Mandatory Members, 1 Optional)
+            Team size: 4 (1 Team Leader, 3 Mandatory Members, 1 Optional)
           </p>
         </div>
 
