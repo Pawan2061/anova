@@ -48,11 +48,11 @@ function Signup({ text }: { text: string }) {
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor={`${id}-email`}>Full Name</Label>
+              <Label htmlFor={`${id}-name`}>Full Name (For Certificates)</Label>
               <Input
                 id={`${id}-name`}
                 name="name"
-                type="name"
+                type="text"
                 placeholder="Enter your name"
                 required
               />
@@ -114,6 +114,17 @@ function Signup({ text }: { text: string }) {
         </form>
 
         {message && <p className="text-center mt-2">{message}</p>}
+
+        <div className="text-center mt-4">
+          <a
+            href="https://chat.whatsapp.com/https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            📢 Join the Community WhatsApp Group
+          </a>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -63,7 +63,9 @@ function HackRegister({ text }: { text: string }) {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor={`${id}-team-name`}>Team Name</Label>
+              <Label htmlFor={`${id}-team-name`}>
+                Team Name (For Certificates)
+              </Label>
               <Input
                 id={`${id}-team-name`}
                 name="teamName"
@@ -245,6 +247,16 @@ function HackRegister({ text }: { text: string }) {
         </form>
 
         {message && <p className="text-center mt-2 flex-shrink-0">{message}</p>}
+        <div className="text-center mt-4">
+          <a
+            href="https://chat.whatsapp.com/https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            📢 Join the Community WhatsApp Group
+          </a>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -134,7 +134,7 @@ export function AnnounceCard() {
                     <div className="flex flex-col items-center">
                       <h3 className="mt-6 pb-1 font-bold">
                         <span className="text-2xl md:text-4xl">
-                          Any questions about Hackathon?
+                          Any questions about Anova Club?
                         </span>
                       </h3>
                     </div>
@@ -149,7 +149,7 @@ export function AnnounceCard() {
                         {/* <Button>Book a call</Button> */}
                       {/* </Link> */}
                       <Link
-                        href="mailto:pandeypawan2061@gmail.com"
+                        href="mailto:anovaclub@gmail.com"
                         target="_blank"
                         className={cn(
                           buttonVariants({ variant: "outline", size: "icon" })

@@ -60,6 +60,10 @@ const SOCIAL_LINKS: SocialLink[] = [
     label: "Discord",
     link: "https://discord.com",
   },
+  {
+    label: "Whatsapp",
+    link: "https://chat.whatsapp.com/FNUBQRYzkKGH4lgDbAw8zb",
+  },
 ];
 
 function Footer() {
