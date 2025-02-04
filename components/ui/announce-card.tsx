@@ -142,12 +142,12 @@ export function AnnounceCard() {
                       Feel free to reach out to us!
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <Link
+                      {/* <Link
                         href={"https://cal.com/aliimam/designali"}
                         target="_blank"
                       >
-                        <Button>Book a call</Button>
-                      </Link>
+                        {/* <Button>Book a call</Button> */}
+                      {/* </Link> */}
                       <Link
                         href="mailto:pandeypawan2061@gmail.com"
                         target="_blank"
@@ -159,7 +159,7 @@ export function AnnounceCard() {
                           <Mail />
                         </span>
                       </Link>
-                      <Link
+                      {/* <Link
                         href="whatsapp:contact=9289037928
 "
                         target="_blank"
@@ -170,7 +170,7 @@ export function AnnounceCard() {
                         <span className="flex items-center gap-1">
                           <MessageCircle />{" "}
                         </span>
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>

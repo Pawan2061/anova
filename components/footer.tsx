@@ -45,19 +45,20 @@ function MagneticSocialLink({
 const SOCIAL_LINKS: SocialLink[] = [
   {
     label: "Github",
-    link: "https://github.com",
+    link: "https://github.com/ANOVA-Datasimplified",
   },
-  {
-    label: "Twitter",
-    link: "https://twitter.com",
-  },
+
   {
     label: "LinkedIn",
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/company/anova-club/",
   },
   {
     label: "Instagram",
-    link: "https://instagram.com",
+    link: "https://www.instagram.com/anova_ds/",
+  },
+  {
+    label: "Discord",
+    link: "https://discord.com",
   },
 ];
 
