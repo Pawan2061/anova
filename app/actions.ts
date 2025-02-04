@@ -63,11 +63,52 @@ export async function registerUserForWorkshop(formData: FormData) {
 }
 
 export async function registerForHack(formData: HackRegistrationData) {
-  console.log(formData, "reached to prisma ");
-
   try {
-    return "";
+    // Check if any team member's USN is already registered
+    const existingUSNs = await prisma.hackRegistrations.findMany({
+      where: {
+        OR: [
+          { leaderUsn: formData.leaderUsn },
+          { member1Usn: formData.member1Usn },
+          { member2Usn: formData.member2Usn },
+          { member3Usn: formData.member3Usn },
+        ],
+      },
+    });
+
+    if (existingUSNs.length > 0) {
+      return {
+        error:
+          "One or more team members are already registered in another team",
+      };
+    }
+
+    console.log(formData);
+
+    const registration = await prisma.hackRegistrations.create({
+      data: {
+        teamName: formData.teamName,
+        leaderName: formData.leaderName,
+        leaderUsn: formData.leaderUsn,
+        leaderCurrentYear: formData.leaderCurrentYear,
+        leaderPhone: formData.leaderPhone,
+        leaderOfficialMail: formData.leaderOfficialMail,
+        member1Name: formData.member1Name,
+        member1Usn: formData.member1Usn,
+        member1Year: formData.member1Year,
+        member2Name: formData.member2Name,
+        member2Usn: formData.member2Usn,
+        member2Year: formData.member2Year,
+        member3Name: formData.member3Name,
+        member3Usn: formData.member3Usn,
+        member3Year: formData.member3Year,
+        email: formData.email,
+      },
+    });
+
+    return { success: `team ${registration.teamName} registered successfully` };
   } catch (error) {
-    return "";
+    console.error("Registration Error:", error);
+    return { error: "Something went wrong during registration" };
   }
 }

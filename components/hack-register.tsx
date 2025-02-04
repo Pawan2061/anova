@@ -25,11 +25,13 @@ function HackRegister({ text }: { text: string }) {
       formData.entries()
     ) as HackRegistrationData;
     const response = await registerForHack(formDataObject);
-    // if (response.error) {
-    //   setMessage(response.error);
-    // } else {
-    //   setMessage(response.success!);
-    // }
+    console.log(response, "respinse is here");
+
+    if (response.error) {
+      setMessage(response.error);
+    } else {
+      setMessage(response.success!);
+    }
   };
 
   return (
@@ -51,6 +53,15 @@ function HackRegister({ text }: { text: string }) {
           className="overflow-y-auto flex-grow pr-4"
         >
           <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor={`${id}-email`}>Email</Label>
+              <Input
+                id={`${id}-email`}
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
             <div className="space-y-2">
               <Label htmlFor={`${id}-team-name`}>Team Name</Label>
               <Input
