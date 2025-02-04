@@ -9,7 +9,7 @@ export default function Home() {
     <section className="mt-16  flex flex-col mx-auto items-center  max-w-6xl border rounded-2xl shadow-black bg-gray-100/60 ">
       <div className="flex justify-between">
         <HeroPill
-          href={"/about"}
+          href={"/register"}
           label={"Techathon in Feb-6 Conducted by anova club data science"}
         />
       </div>

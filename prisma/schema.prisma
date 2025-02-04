@@ -16,9 +16,29 @@ datasource db {
 model Registrations {
   id           String @default(uuid())
   usn          String @unique
-  email        String
+  name         String
   phone        String
   year         String
   department   String
   officialMail String
+}
+
+model HackRegistrations {
+  id                 String @default(uuid())
+  email              String @unique
+  teamName           String
+  leaderName         String
+  leaderUsn          String
+  leaderCurrentYear  String
+  leaderPhone        String
+  leaderOfficialMail String
+  member1Name        String
+  member1Usn         String
+  member1Year        String
+  member2Name        String
+  member2Usn         String
+  member2Year        String
+  member3Name        String
+  member3Usn         String
+  member3Year        String
 }

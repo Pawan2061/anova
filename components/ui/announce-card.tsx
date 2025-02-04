@@ -88,25 +88,25 @@ export function AnnounceCard() {
                       id="next-js"
                       className="absolute bottom-24 left-14 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
                     >
-                      UI-UX
+                      POWER-BI
                     </div>
                     <div
                       id="react-js"
                       className="absolute left-2 top-20 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
                     >
-                      Graphic Design
+                      TABLEAU
                     </div>
                     <div
                       id="typescript"
                       className="absolute bottom-20 right-1 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
                     >
-                      Web Application
+                      DATA VISUALIZATION
                     </div>
                     <div
                       id="javascript"
                       className="absolute right-12 top-10 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
                     >
-                      Branding
+                      PYTHON PROGRAMMING
                     </div>
                     <div id="pointer" className="absolute">
                       <svg

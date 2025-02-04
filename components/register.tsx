@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useId } from "react";
-import { registerUser } from "@/app/actions"; // Import the server action
+import { registerUserForWorkshop } from "@/app/actions";
 
 function Signup({ text }: { text: string }) {
   const id = useId();
@@ -22,7 +22,7 @@ function Signup({ text }: { text: string }) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    const response = await registerUser(formData);
+    const response = await registerUserForWorkshop(formData);
 
     if (response.error) {
       setMessage(response.error);
@@ -41,28 +41,28 @@ function Signup({ text }: { text: string }) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="sm:text-center">
-            Hackathon Registration
+            Workshop Registration
           </DialogTitle>
         </DialogHeader>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
+              <Label htmlFor={`${id}-email`}>Full Name</Label>
+              <Input
+                id={`${id}-name`}
+                name="name"
+                type="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div className="space-y-2">
               <Label htmlFor={`${id}-usn`}>USN</Label>
               <Input
                 id={`${id}-usn`}
                 name="usn"
                 placeholder="Enter your USN"
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor={`${id}-email`}>Personal Email</Label>
-              <Input
-                id={`${id}-email`}
-                name="email"
-                type="email"
-                placeholder="Enter your email"
                 required
               />
             </div>
@@ -82,6 +82,8 @@ function Signup({ text }: { text: string }) {
                 id={`${id}-year`}
                 name="year"
                 type="number"
+                max={4}
+                min={1}
                 placeholder="Enter your current year"
                 required
               />
