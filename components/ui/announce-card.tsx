@@ -141,15 +141,9 @@ export function AnnounceCard() {
                     <p className="mb-4 text-slate-400">
                       Feel free to reach out to us!
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {/* <Link
-                        href={"https://cal.com/aliimam/designali"}
-                        target="_blank"
-                      >
-                        {/* <Button>Book a call</Button> */}
-                      {/* </Link> */}
+                    <div className="flex flex-wrap justify-center gap-2">
                       <Link
-                        href="mailto:anovaclub@gmail.com"
+                        href="mailto:official@anovaclub.site"
                         target="_blank"
                         className={cn(
                           buttonVariants({ variant: "outline", size: "icon" })
@@ -159,18 +153,6 @@ export function AnnounceCard() {
                           <Mail />
                         </span>
                       </Link>
-                      {/* <Link
-                        href="whatsapp:contact=9289037928
-"
-                        target="_blank"
-                        className={cn(
-                          buttonVariants({ variant: "outline", size: "icon" })
-                        )}
-                      >
-                        <span className="flex items-center gap-1">
-                          <MessageCircle />{" "}
-                        </span>
-                      </Link> */}
                     </div>
                   </div>
                 </div>

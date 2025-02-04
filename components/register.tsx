@@ -89,7 +89,9 @@ function Signup({ text }: { text: string }) {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor={`${id}-department`}>Department</Label>
+              <Label htmlFor={`${id}-department`}>
+                Department (CSE-DS/CSE-AI/CSE-AIML/CSE-SE ...)
+              </Label>
               <Input
                 id={`${id}-department`}
                 name="department"
@@ -122,7 +124,7 @@ function Signup({ text }: { text: string }) {
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
           >
-            📢 Join the Community WhatsApp Group
+            📢 For further information join our community
           </a>
         </div>
       </DialogContent>

@@ -7,43 +7,44 @@ import sathwik from "../public/saathwikh photo  - Saathwikh Gargesh.jpg";
 import nishant from "../public/Nishant Tiwary.jpeg";
 // import dharsiny from "../public/Dharshiny S P.jpeg";
 import jaideep from "../public/jaideep.jpg";
+import hod from "../public/hod.png";
 import dharsiny from "../public/dharsininew.png";
 const people = [
   {
-    id: 1,
-    name: "Sathwik Gargesh",
-    designation: "ANOVA LEAD",
-    image: sathwik.src,
+    id: 3,
+    name: "Dr. Ramesh Sekaran",
+    designation: "PROGRAM HEAD",
+    image: hod.src,
   },
   {
     id: 2,
     name: "Dr N .Suresh Kumar ",
-    designation: "ANOVA COORDINATOR",
+    designation: "Faculty COORDINATOR",
     image: sureshsir.src,
   },
-  // {
-  //   id: 3,
-  //   name: "DR Ramesh",
-  //   designation: "HOD-ANOVA CLUB",
-  //   image:
-  //     "https://drive.google.com/file/d/1kGC7g8F4bLH2tflTOswNql4Ds6QWjrGp/view",
-  // },
+  {
+    id: 1,
+    name: "Kottur Saathwikh Gargesh",
+    designation: "SCHOOL LEAD",
+    image: sathwik.src,
+  },
+
   {
     id: 4,
-    name: "Ms Dharsiny",
-    designation: "STUDENT COORDINATOR",
+    name: " Dharshiny.S.P",
+    designation: "DEPARTMENT LEAD",
     image: dharsiny.src,
   },
   {
     id: 5,
-    name: "Jaideep ",
+    name: " Guthireddy Venkata Jaideep Reddy ",
     designation: "SECRETARY",
     image: jaideep.src,
   },
   {
     id: 6,
-    name: "Mr Nishant Tiwary",
-    designation: "TECHNICAL LEAD",
+    name: "Nishant Tiwary",
+    designation: "TECHNICAL TEAM LEAD",
     image: nishant.src,
   },
 ];
@@ -52,7 +53,7 @@ function People() {
   return (
     <section>
       <h1 className="text-3xl font-semibold text-center">Our Team</h1>
-      <div className="flex flex-row items-center justify-center mb-2 w-full">
+      <div className="flex flex-row items-center justify-center mb-2 my-10 w-full">
         <AnimatedTooltip items={people} />
       </div>
     </section>

@@ -57,7 +57,7 @@ const dummyContent = (
       <br />
       <span className="font-bold">Email:</span>{" "}
       <a href="mailto:anovaclub@gmail.com" className="text-blue-500">
-        anovaclub@gmail.com
+        official@anovaclub.site
       </a>
       <br />
       <span className="font-bold">Instagram:</span>{" "}
