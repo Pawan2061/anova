@@ -8,7 +8,7 @@ import { BentoDemo } from "@/components/event";
 import TextShimmerBasic from "@/components/ui/first-text";
 export default function Home() {
   return (
-    <section className="mt-16  flex flex-col mx-auto items-center  max-w-6xl border rounded-2xl shadow-black bg-gray-100/60 ">
+    <section className="mt-16  flex flex-col mx-auto items-center  max-w-6xl border rounded-2xl shadow-black bg-gray-100/60 overflow-hidden">
       <div className="flex justify-between p-7">
         <TextShimmer className="font-mono text-2xl" duration={1}>
           {"Anova Club {Data-Science club of Jain University}"}

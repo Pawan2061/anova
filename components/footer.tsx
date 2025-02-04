@@ -47,7 +47,6 @@ const SOCIAL_LINKS: SocialLink[] = [
     label: "Github",
     link: "https://github.com/ANOVA-Datasimplified",
   },
-
   {
     label: "LinkedIn",
     link: "https://www.linkedin.com/company/anova-club/",
@@ -68,8 +67,8 @@ const SOCIAL_LINKS: SocialLink[] = [
 
 function Footer() {
   return (
-    <div className="flex min-h-[150px] w-full items-center justify-center  dark:bg-zinc-950">
-      <div className="flex items-center justify-start space-x-3">
+    <div className="flex min-h-[150px] w-full items-center justify-center dark:bg-zinc-950 px-4">
+      <div className="flex flex-wrap items-center justify-center space-x-3 max-w-2xl gap-3 sm:justify-start">
         {SOCIAL_LINKS.map((link) => (
           <MagneticSocialLink key={link.label} link={link.link}>
             {link.label}

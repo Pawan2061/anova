@@ -5,8 +5,9 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import sureshsir from "../public/sureshsir.jpg";
 import sathwik from "../public/saathwikh photo  - Saathwikh Gargesh.jpg";
 import nishant from "../public/Nishant Tiwary.jpeg";
-import dharsiny from "../public/Dharshiny S P.jpeg";
+// import dharsiny from "../public/Dharshiny S P.jpeg";
 import jaideep from "../public/jaideep.jpg";
+import dharsiny from "../public/dharsininew.png";
 const people = [
   {
     id: 1,
