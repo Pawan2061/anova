@@ -4,9 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Background } from "@/components/background";
 import { Navbar } from "@/components/nav";
-import icon from "../public/logo.png";
 import { Footer } from "@/components/footer";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +19,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anova ",
   description: "Anova Club Data Science",
-  icons: {
-    icon: "/logo.png",
-  },
+  icons: [
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "../public/logo.png",
+    },
+  ],
 };
 
 export default function RootLayout({

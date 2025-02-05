@@ -52,7 +52,12 @@ const features = [
     description: "Future events will be loaded",
     href: "/",
     cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: (
+      <img
+        src="https://cdn-cjhkj.nitrocdn.com/krXSsXVqwzhduXLVuGLToUwHLNnSxUxO/assets/images/optimized/rev-b135bb1/spotme.com/wp-content/uploads/2020/07/Hero-1.jpg"
+        className="absolute h-full opacity-60"
+      />
+    ),
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-4",
   },
   // {
