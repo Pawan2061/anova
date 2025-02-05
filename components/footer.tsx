@@ -57,7 +57,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: "Discord",
-    link: "https://discord.com",
+    link: "https://discord.gg/JpwJrHcpnT",
   },
   {
     label: "Whatsapp",

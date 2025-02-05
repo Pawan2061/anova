@@ -69,20 +69,8 @@ function HackRegister({ text }: { text: string }) {
           className="overflow-y-auto flex-grow pr-4"
         >
           <div className="space-y-4">
-            {/* <div className="space-y-2">
-              <Label htmlFor={`${id}-email`}>Email</Label>
-              <Input
-                id={`${id}-email`}
-                name="email"
-                placeholder="Enter your email"
-                required
-                className="focus:ring-2 focus:ring-blue-500"
-              />
-            </div> */}
             <div className="space-y-2">
-              <Label htmlFor={`${id}-team-name`}>
-                Team Name (For Certificates)
-              </Label>
+              <Label htmlFor={`${id}-team-name`}>Team Name</Label>
               <Input
                 id={`${id}-team-name`}
                 name="teamName"
@@ -96,7 +84,9 @@ function HackRegister({ text }: { text: string }) {
               <h3 className="text-sm font-semibold">Team Leader Details</h3>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <Label htmlFor={`${id}-leader-name`}>Full Name</Label>
+                  <Label htmlFor={`${id}-leader-name`}>
+                    Full Name(For Certificates)
+                  </Label>
                   <Input
                     id={`${id}-leader-name`}
                     name="leaderName"

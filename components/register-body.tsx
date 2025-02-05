@@ -22,11 +22,11 @@ const EventDetails = () => {
           </p>
 
           <div className="mt-4 flex flex-wrap justify-center gap-2">
-            <Badge variant="outline" className="bg-blue-100 font-bold">
-              Limited Seats for Non-CSE
-            </Badge>
             <Badge variant="outline" className="bg-green-100 font-bold">
-              Open for all CSE Branches
+              Open for all CSE Data Science Students
+            </Badge>
+            <Badge variant="outline" className="bg-blue-100 font-bold">
+              Limited Seats for Other Programs
             </Badge>
           </div>
         </div>
