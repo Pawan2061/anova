@@ -22,13 +22,19 @@ const EventDetails = () => {
           </p>
 
           <div className="mt-4 flex flex-wrap justify-center gap-2">
-            <Badge variant="outline" className="bg-green-100 font-bold">
-              Open for all CSE Data Science Students
-            </Badge>
-            <Badge variant="outline" className="bg-blue-100 font-bold">
-              Limited Seats for Other Programs
+            <Badge
+              variant="outline"
+              className="bg-red-100 text-red-600 font-bold"
+            >
+              Registrations Closed
             </Badge>
           </div>
+
+          <Alert className="mt-4 bg-red-50 border-red-200">
+            <AlertDescription className="font-bold text-red-600">
+              Registration for this workshop is now closed.
+            </AlertDescription>
+          </Alert>
         </div>
 
         <div className="w-full border-t-2 border-gray-200 my-2"></div>
