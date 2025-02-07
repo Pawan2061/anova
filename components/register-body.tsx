@@ -32,7 +32,7 @@ const EventDetails = () => {
 
           <Alert className="mt-4 bg-red-50 border-red-200">
             <AlertDescription className="font-bold text-red-600">
-              Registration for this workshop is now closed.
+              Slots are already Full.
             </AlertDescription>
           </Alert>
         </div>
@@ -46,58 +46,18 @@ const EventDetails = () => {
           />
           <p className="mt-2 font-bold">Codewave Hackathon 3.0</p>
 
-          <div className="mt-4 bg-blue-50 rounded-lg p-4 shadow-sm">
-            <div className="text-xl font-bold text-blue-600">
-              <LetterSwapForward label="Prize Pool" staggerFrom="center" />
-            </div>
-            <div className="mt-2 text-blue-800 font-extrabold text-2xl">
-              Cash Prizes Worth ₹5,000
-            </div>
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <Badge
+              variant="outline"
+              className="bg-red-100 text-red-600 font-bold"
+            >
+              Registrations Closed
+            </Badge>
           </div>
 
-          <div className="mt-8">
-            <LetterSwapForward
-              label="Hackathon Guidelines"
-              staggerFrom="center"
-            />
-            <div className="mt-4 grid gap-2 text-left">
-              <p className="flex justify-center items-center">
-                <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                <span>
-                  Team size:{" "}
-                  <span className="font-bold">
-                    4 (1 Team Leader, 3 Mandatory Members)
-                  </span>
-                </span>
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <LetterSwapForward
-              label="Team Formation Details"
-              staggerFrom="last"
-            />
-            <div className="mt-4 bg-gray-50 rounded-lg p-4">
-              <p className="text-base">
-                Collecting:{" "}
-                <span className="font-bold">
-                  Team Leader & Members' Names, USN, Email, Phone Number, Team
-                  Name, Year.
-                </span>
-              </p>
-              <p className="mt-2 text-base font-bold text-blue-600">
-                Teams can be formed across any year.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8">
-          <LetterSwapForward label="Register Now" staggerFrom="first" />
-          <Alert className="mt-4 bg-yellow-50 border-yellow-200">
-            <AlertDescription className="font-bold">
-              Register early to secure your spot! Limited seats available.
+          <Alert className="mt-4 bg-red-50 border-red-200">
+            <AlertDescription className="font-bold text-red-600">
+              Registration for this hackathon is now closed. All Slots are full
             </AlertDescription>
           </Alert>
         </div>
